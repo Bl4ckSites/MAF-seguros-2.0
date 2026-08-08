@@ -573,24 +573,27 @@ img {
 /* ==========================================================================
    PARCEIROS - VERSÃO BLINDADA
    ========================================================================== */
+/* ==========================================================================
+   PARCEIROS (CARROSSEL INFINITO) - VERSÃO FINAL
+   ========================================================================== */
 .partners-section {
-  background: var(--white) !important;
-  padding: 60px 0 !important;
-  overflow: hidden !important;
-  width: 100% !important;
+  background: var(--white);
+  padding: 60px 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .partners-track {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 20px !important;
-  width: max-content !important;
-  animation: scrollPartners 35s linear infinite !important;
-  padding: 10px 0 !important;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: max-content;
+  animation: scrollPartners 35s linear infinite;
+  padding: 10px 0;
 }
 
 .partners-track:hover {
-  animation-play-state: paused !important;
+  animation-play-state: paused;
 }
 
 @keyframes scrollPartners {
@@ -599,112 +602,60 @@ img {
 }
 
 .partner-item {
-  flex-shrink: 0 !important;
-  width: 140px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 10px !important;
-  background: var(--white) !important;
-  border-radius: 8px !important;
+  flex-shrink: 0;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: var(--white);
+  border-radius: 8px;
 }
 
 .partner-logo {
-  height: 45px !important;
-  max-width: 120px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  opacity: 0.7 !important;
-  filter: grayscale(100%) !important;
-  transition: all 0.3s ease !important;
+  height: 45px;
+  max-width: 120px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
 }
 
 .partner-item:hover .partner-logo {
-  opacity: 1 !important;
-  filter: grayscale(0%) !important;
-  transform: scale(1.1) !important;
-}
-
-/* TABLET: 5-6 imagens */
-@media (max-width: 1024px) {
-  .partner-item { width: 120px !important; }
-  .partner-logo { height: 40px !important; max-width: 100px !important; }
-  .partners-track { gap: 15px !important; }
-}
-
-/* MOBILE: 3 imagens */
-@media (max-width: 768px) {
-  .partner-item { width: 100px !important; }
-  .partner-logo { height: 35px !important; max-width: 85px !important; }
-  .partners-track { gap: 12px !important; animation-duration: 25s !important; }
-}
-
-/* MOBILE PEQUENO */
-@media (max-width: 480px) {
-  .partner-item { width: 90px !important; }
-  .partner-logo { height: 30px !important; max-width: 75px !important; }
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
 /* ===== RESPONSIVIDADE DO CARROSSEL ===== */
 
 /* Tablet: 5-6 imagens */
 @media (max-width: 1024px) {
-  .partner-item {
-    width: 130px;
-  }
-  
-  .partner-logo {
-    height: 45px;
-    max-width: 110px;
-  }
-  
-  .partners-track {
-    gap: 15px;
-  }
+  .partner-item { width: 130px; }
+  .partner-logo { height: 45px; max-width: 110px; }
+  .partners-track { gap: 15px; }
 }
 
-/* Mobile: 3 imagens */
+/* Mobile: 3 imagens visíveis, mas TODAS animando */
 @media (max-width: 768px) {
-  .partners-header h2 {
-    font-size: 28px;
-  }
-  
-  .partners-header .section-sub {
-    font-size: 16px;
-  }
-  
-  .partner-item {
-    width: 100px; /* Mobile: 100px * 3 + gaps = ~340px visível */
-  }
-  
-  .partner-logo {
-    height: 40px;
-    max-width: 90px;
-  }
-  
-  .partners-track {
-    gap: 15px;
-    animation-duration: 25s; /* Mais rápido no mobile */
+  .partner-item { width: 100px; }
+  .partner-logo { height: 40px; max-width: 90px; }
+  .partners-track { 
+    gap: 15px; 
+    animation-duration: 25s; 
   }
 }
 
-/* Mobile pequeno: ainda 3 imagens mas menores */
+/* Mobile pequeno: 3 imagens menores, mas TODAS animando */
 @media (max-width: 480px) {
-  .partner-item {
-    width: 90px;
-  }
-  
-  .partner-logo {
-    height: 35px;
-    max-width: 80px;
-  }
-  
-  .partners-track {
-    gap: 12px;
-    animation-duration: 20s;
+  .partner-item { width: 90px; }
+  .partner-logo { height: 35px; max-width: 80px; }
+  .partners-track { 
+    gap: 12px; 
+    animation-duration: 20s; 
   }
 }
-
 
 
 
