@@ -1000,15 +1000,3 @@ a:focus, button:focus {
   body { color: #000; background: #fff; }
 }
 
-
-
-
-/* FORÇAR ANIMAÇÃO DO CARROSSEL EM TODOS OS DISPOSITIVOS */
-.partners-track {
-  animation: scrollPartners 35s linear infinite !important;
-}
-
-@keyframes scrollPartners {
-  0% { transform: translateX(0) !important; }
-  100% { transform: translateX(-50%) !important; }
-}
