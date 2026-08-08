@@ -964,42 +964,46 @@ a:focus, button:focus {
 
 
 /* ==========================================================================
-   CORREÇÕES FINAIS (Ícones, Botões e Menu)
+   CORREÇÃO FINAL DOS ÍCONES SVG - COLAR NO FINAL DO ARQUIVO
    ========================================================================== */
 
-/* 1. Corrigir Ícones SVG que estavam gigantes e desalinhados */
+/* Força todos os ícones SVG a ficarem pequenos e alinhados */
 .icon-svg {
-  margin: 0 !important; /* Remove a margem automática que quebrava o layout */
-  display: inline-block !important; /* Permite ficar ao lado do texto */
-  vertical-align: middle; /* Alinha perfeitamente com o texto */
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
 }
 
-/* Tamanho específico para ícones de contato (telefone, email, etc) */
-.phone-link .icon-svg, 
-.footer-contact .icon-svg {
+/* Tamanho específico para ícones dentro do header (telefone) */
+.phone-link .icon-svg,
+.nav-actions .icon-svg {
   width: 18px !important;
   height: 18px !important;
   margin-right: 6px !important;
 }
 
-/* 2. Espaçamento extra e tamanho dos Botões */
+/* Tamanho específico para ícones do footer (telefone, email, laptop) */
+.footer-contact .icon-svg {
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Tamanho para ícones de redes sociais no footer */
+.footer-social .icon-svg {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 !important;
+  stroke: white !important;
+}
+
+/* Espaçamento extra nos botões */
 .btn {
-  margin: 10px 0 !important; /* Espaçamento extra acima e abaixo */
-  padding: 14px 28px !important; /* Botão um pouco mais robusto */
+  margin: 10px 0 !important;
 }
 
-.btn-large {
-  padding: 18px 36px !important;
-}
-
-/* 3. Aumentar o espaçamento entre os itens do Header (Telefone e Botão) */
+/* Espaçamento entre telefone e botão WhatsApp no header */
 .nav-actions {
   gap: 24px !important;
-}
-
-/* 4. Ajuste fino no link do telefone do header */
-.phone-link {
-  font-size: 15px !important;
-  align-items: center !important;
-}
 }
