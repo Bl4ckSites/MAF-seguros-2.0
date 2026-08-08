@@ -143,10 +143,165 @@
 }
 
 /* ==========================================================================
-   2. ANIMAÇÕES DE CLIQUE / INTERAÇÃO
+   2. ANIMAÇÕES DE SURGIMENTO PARA CARDS (NOVAS)
    ========================================================================== */
 
-/* 2.1 Ripple (Material Design) */
+/* 2.1 Card Fade In Up */
+@keyframes cardFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-up {
+  opacity: 0;
+  animation: cardFadeInUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 2.2 Card Fade In Left */
+@keyframes cardFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-card-left {
+  opacity: 0;
+  animation: cardFadeInLeft 0.7s ease forwards;
+}
+
+/* 2.3 Card Fade In Right */
+@keyframes cardFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-card-right {
+  opacity: 0;
+  animation: cardFadeInRight 0.7s ease forwards;
+}
+
+/* 2.4 Card Zoom In */
+@keyframes cardZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-card-zoom {
+  opacity: 0;
+  animation: cardZoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 2.5 Card Flip In */
+@keyframes cardFlipIn {
+  from {
+    opacity: 0;
+    transform: perspective(600px) rotateY(45deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0);
+  }
+}
+
+.animate-card-flip {
+  opacity: 0;
+  animation: cardFlipIn 0.8s ease forwards;
+}
+
+/* ==========================================================================
+   3. ANIMAÇÃO DO MENU LATERAL MOBILE (NOVA)
+   ========================================================================== */
+
+/* Entrada do menu lateral com slide suave */
+@keyframes slideInMenu {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Saída do menu lateral */
+@keyframes slideOutMenu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Fade-in sequencial dos itens do menu */
+@keyframes fadeInMenuItem {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplicar animação quando o menu abre (mobile) */
+@media (max-width: 768px) {
+  .nav-open .main-nav {
+    animation: slideInMenu 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .nav-open .nav-list > li {
+    opacity: 0;
+    animation: fadeInMenuItem 0.35s ease forwards;
+  }
+  
+  .nav-open .nav-list > li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-open .nav-list > li:nth-child(2) { animation-delay: 0.2s; }
+  .nav-open .nav-list > li:nth-child(3) { animation-delay: 0.3s; }
+  .nav-open .nav-list > li:nth-child(4) { animation-delay: 0.4s; }
+  .nav-open .nav-list > li:nth-child(5) { animation-delay: 0.5s; }
+  
+  /* Submenus também animam */
+  .nav-open .dropdown-menu {
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  
+  .nav-open .dropdown.active .dropdown-menu {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+/* ==========================================================================
+   4. ANIMAÇÕES DE CLIQUE / INTERAÇÃO
+   ========================================================================== */
+
+/* 4.1 Ripple (Material Design) */
 @keyframes ripple {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
@@ -179,7 +334,7 @@
   height: 300px;
 }
 
-/* 2.2 Click Pulse */
+/* 4.2 Click Pulse */
 @keyframes clickPulse {
   0% { transform: scale(1); }
   50% { transform: scale(0.95); }
@@ -190,7 +345,7 @@
   animation: clickPulse 0.3s ease;
 }
 
-/* 2.3 Click Scale */
+/* 4.3 Click Scale */
 @keyframes clickScale {
   0% { transform: scale(1); }
   50% { transform: scale(0.9); }
@@ -201,7 +356,7 @@
   animation: clickScale 0.2s ease;
 }
 
-/* 2.4 Shake (para erros/atenção) */
+/* 4.4 Shake (para erros/atenção) */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
@@ -212,7 +367,7 @@
   animation: shake 0.6s ease;
 }
 
-/* 2.5 Tada (chamada de atenção) */
+/* 4.5 Tada (chamada de atenção) */
 @keyframes tada {
   0% { transform: scale(1); }
   10%, 20% { transform: scale(0.9) rotate(-3deg); }
@@ -225,7 +380,7 @@
   animation: tada 1s ease;
 }
 
-/* 2.6 Rubber Band (elástico) */
+/* 4.6 Rubber Band (elástico) */
 @keyframes rubberBand {
   0% { transform: scale3d(1, 1, 1); }
   30% { transform: scale3d(1.25, 0.75, 1); }
@@ -240,7 +395,7 @@
   animation: rubberBand 1s ease;
 }
 
-/* 2.7 Jello (gelatina) */
+/* 4.7 Jello (gelatina) */
 @keyframes jello {
   0%, 100% { transform: skewX(0) skewY(0); }
   30% { transform: skewX(-12.5deg) skewY(-12.5deg); }
@@ -254,7 +409,7 @@
   animation: jello 1s ease;
 }
 
-/* 2.8 Heart Beat (batida de coração) */
+/* 4.8 Heart Beat (batida de coração) */
 @keyframes heartBeat {
   0% { transform: scale(1); }
   14% { transform: scale(1.3); }
@@ -268,10 +423,10 @@
 }
 
 /* ==========================================================================
-   3. ANIMAÇÕES CONTÍNUAS / DECORATIVAS
+   5. ANIMAÇÕES CONTÍNUAS / DECORATIVAS
    ========================================================================== */
 
-/* 3.1 Float (flutuação suave) */
+/* 5.1 Float (flutuação suave) */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
@@ -281,7 +436,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* 3.2 Glow (brilho pulsante) */
+/* 5.2 Glow (brilho pulsante) */
 @keyframes glow {
   0%, 100% {
     box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
@@ -295,7 +450,7 @@
   animation: glow 2s ease-in-out infinite;
 }
 
-/* 3.3 Shimmer (brilho deslizante) */
+/* 5.3 Shimmer (brilho deslizante) */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -312,7 +467,7 @@
   animation: shimmer 2s linear infinite;
 }
 
-/* 3.4 Swing (balanço) */
+/* 5.4 Swing (balanço) */
 @keyframes swing {
   20% { transform: rotate(15deg); }
   40% { transform: rotate(-10deg); }
@@ -326,7 +481,7 @@
   transform-origin: top center;
 }
 
-/* 3.5 Wobble */
+/* 5.5 Wobble */
 @keyframes wobble {
   0% { transform: translateX(0); }
   15% { transform: translateX(-25%) rotate(-5deg); }
@@ -342,7 +497,7 @@
 }
 
 /* ==========================================================================
-   4. UTILITÁRIOS - DELAYS
+   6. UTILITÁRIOS - DELAYS
    ========================================================================== */
 
 .delay-1 { animation-delay: 0.1s; }
@@ -355,7 +510,7 @@
 .delay-8 { animation-delay: 0.8s; }
 
 /* ==========================================================================
-   5. UTILITÁRIOS - DURAÇÕES
+   7. UTILITÁRIOS - DURAÇÕES
    ========================================================================== */
 
 .duration-fast { animation-duration: 0.3s !important; }
@@ -364,7 +519,7 @@
 .duration-very-slow { animation-duration: 1.5s !important; }
 
 /* ==========================================================================
-   6. UTILITÁRIOS - EASING
+   8. UTILITÁRIOS - EASING
    ========================================================================== */
 
 .ease-bounce { animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; }
@@ -372,10 +527,10 @@
 .ease-sharp { animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1) !important; }
 
 /* ==========================================================================
-   7. CLASSES COMBINADAS (HOVER EFFECTS)
+   9. CLASSES COMBINADAS (HOVER EFFECTS)
    ========================================================================== */
 
-/* 7.1 Hover Lift (elevação suave) */
+/* 9.1 Hover Lift (elevação suave) */
 .animate-hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -385,7 +540,7 @@
   box-shadow: 0 15px 30px rgba(0, 102, 204, 0.2);
 }
 
-/* 7.2 Hover Glow (brilho no hover) */
+/* 9.2 Hover Glow (brilho no hover) */
 .animate-hover-glow {
   transition: box-shadow 0.3s ease;
 }
@@ -394,7 +549,7 @@
   box-shadow: 0 0 20px var(--primary-light), 0 0 40px rgba(0, 102, 204, 0.3);
 }
 
-/* 7.3 Hover Rotate (rotação no hover) */
+/* 9.3 Hover Rotate (rotação no hover) */
 .animate-hover-rotate {
   transition: transform 0.4s ease;
 }
@@ -403,7 +558,7 @@
   transform: rotate(5deg) scale(1.05);
 }
 
-/* 7.4 Hover Border (borda animada) */
+/* 9.4 Hover Border (borda animada) */
 .animate-hover-border {
   position: relative;
   overflow: hidden;
@@ -424,7 +579,7 @@
   left: 0;
 }
 
-/* 7.5 Hover Shine (brilho passando) */
+/* 9.5 Hover Shine (brilho passando) */
 .animate-hover-shine {
   position: relative;
   overflow: hidden;
@@ -451,7 +606,7 @@
 }
 
 /* ==========================================================================
-   8. RESPEITAR "REDUCED MOTION"
+   10. RESPEITAR "REDUCED MOTION"
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -463,6 +618,11 @@
   .animate-flip-in-x,
   .animate-bounce-in,
   .animate-slide-in-up,
+  .animate-card-up,
+  .animate-card-left,
+  .animate-card-right,
+  .animate-card-zoom,
+  .animate-card-flip,
   .animate-float,
   .animate-glow,
   .animate-shimmer,
@@ -474,7 +634,13 @@
     transform: none;
   }
   
-  /* Manter apenas transições suaves */
+  .nav-open .main-nav,
+  .nav-open .nav-list > li {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  
   .animate-hover-lift:hover,
   .animate-hover-glow:hover,
   .animate-hover-rotate:hover {
