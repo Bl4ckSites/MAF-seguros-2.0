@@ -1,45 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // ===== STICKY HEADER =====
+  // ===== STICKY HEADER & HERO FADE =====
   const header = document.getElementById('main-header');
+  const hero = document.getElementById('hero');
+  
   window.addEventListener('scroll', function () {
-    if (header) header.classList.toggle('scrolled', window.pageYOffset > 80);
-  });
-
-  // ===== HERO CAROUSEL =====
-  const heroSlides = document.querySelectorAll('.carousel-slide');
-  if (heroSlides.length > 0) {
-    let currentSlide = 0;
-    setInterval(() => {
-      heroSlides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % heroSlides.length;
-      heroSlides[currentSlide].classList.add('active');
-    }, 5000); // Troca a cada 5 segundos
-  }
-
-  // ===== IMAGE CAROUSEL (Página de Seguros) =====
-  const carouselImgs = document.querySelectorAll('.carousel-img');
-  const carouselDots = document.querySelectorAll('.carousel-dot');
-  if (carouselImgs.length > 0) {
-    let currentImg = 0;
-    const showImage = (index) => {
-      carouselImgs.forEach(img => img.classList.remove('active'));
-      carouselDots.forEach(dot => dot.classList.remove('active'));
-      carouselImgs[index].classList.add('active');
-      carouselDots[index].classList.add('active');
-      currentImg = index;
-    };
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (header) header.classList.toggle('scrolled', currentScroll > 80);
     
-    // Auto-play
-    setInterval(() => {
-      let next = (currentImg + 1) % carouselImgs.length;
-      showImage(next);
-    }, 4000);
-
-    // Clique nos dots
-    carouselDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => showImage(index));
-    });
-  }
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      const opacity = Math.max(0, 1 - currentScroll / (heroHeight * 1.2));
+      hero.style.opacity = opacity;
+      hero.classList.toggle('fade-out', opacity <= 0.1);
+    }
+  });
 
   // ===== MENU MOBILE =====
   const toggle = document.getElementById('menu-toggle');
@@ -53,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Dropdown: abre/fecha subbotões SEM fechar o menu
   dropdownToggles.forEach(function (toggler) {
     toggler.addEventListener('click', function (e) {
       if (window.innerWidth <= 768) {
@@ -64,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  document.querySelectorAll('.nav-list a, .dropdown-menu a').forEach(function (link) {
+  // Fechar menu SOMENTE ao clicar em links NORMAIS (não no dropdown-toggle)
+  document.querySelectorAll('.nav-list > li > a:not(.dropdown-toggle), .dropdown-menu a').forEach(function (link) {
     link.addEventListener('click', function () {
       if (window.innerWidth <= 768) {
         body.classList.remove('nav-open');
@@ -73,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Fechar menu ao clicar fora
   document.addEventListener('click', function (e) {
     if (window.innerWidth <= 768 && body.classList.contains('nav-open')) {
       if (!e.target.closest('.main-nav') && !e.target.closest('.hamburger')) {
