@@ -1,14 +1,10 @@
 /* ==========================================================================
-   1. VARIÁVEIS CSS (Design System)
+   VARIÁVEIS CSS
    ========================================================================== */
 :root {
-  /* Paleta Azul Unificada */
   --primary: #0066cc;
   --primary-dark: #003d7a;
   --primary-light: #e6f0fa;
-  --accent: #0052a3;
-  
-  /* Cores Neutras */
   --text-dark: #1f2937;
   --text-medium: #4b5563;
   --text-light: #6b7280;
@@ -17,12 +13,9 @@
   --bg-light: #f8fafc;
   --white: #ffffff;
   --dark: #0f172a;
-  
-  /* WhatsApp (Mantido verde por padrão de UX) */
   --whatsapp: #25D366;
   --whatsapp-dark: #128C7E;
   
-  /* Espaçamentos */
   --spacing-xs: 10px;
   --spacing-sm: 15px;
   --spacing-md: 20px;
@@ -31,27 +24,24 @@
   --spacing-2xl: 60px;
   --spacing-3xl: 80px;
   
-  /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 50%;
   
-  /* Sombras */
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
   --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
   --shadow-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
   
-  /* Transições */
   --transition-base: 0.3s ease;
   --transition-slow: 0.6s ease;
 }
 
 /* ==========================================================================
-   2. RESET E BASE
+   RESET E BASE
    ========================================================================== */
 * {
   margin: 0;
@@ -84,24 +74,7 @@ img {
 }
 
 /* ==========================================================================
-   3. ÍCONES SVG INLINE
-   ========================================================================== */
-.icon-svg {
-  width: 48px;
-  height: 48px;
-  stroke: var(--primary);
-  stroke-width: 1.5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  margin: 0 auto var(--spacing-md);
-  display: block;
-}
-.icon-svg.small { width: 20px; height: 20px; margin: 0; }
-.icon-svg.medium { width: 32px; height: 32px; margin: 0; }
-
-/* ==========================================================================
-   4. HEADER E NAVEGAÇÃO
+   HEADER E NAVEGAÇÃO
    ========================================================================== */
 .header {
   position: fixed;
@@ -181,7 +154,7 @@ img {
 }
 
 /* ==========================================================================
-   5. DROPDOWN MENU
+   DROPDOWN MENU
    ========================================================================== */
 .dropdown {
   position: relative;
@@ -270,7 +243,7 @@ img {
 }
 
 /* ==========================================================================
-   6. AÇÕES DE NAVEGAÇÃO E BOTÕES
+   BOTÕES
    ========================================================================== */
 .nav-actions {
   display: flex;
@@ -343,7 +316,7 @@ img {
 }
 
 /* ==========================================================================
-   7. MENU HAMBURGER (MOBILE)
+   HAMBURGER MENU
    ========================================================================== */
 .hamburger {
   display: none;
@@ -378,7 +351,7 @@ img {
 }
 
 /* ==========================================================================
-   8. HERO E CARROSSEL
+   HERO
    ========================================================================== */
 .hero {
   position: relative;
@@ -459,51 +432,7 @@ img {
 }
 
 /* ==========================================================================
-   9. PAGE HERO
-   ========================================================================== */
-.page-hero {
-  position: relative;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--white);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  margin-top: 70px;
-  overflow: hidden;
-}
-
-.page-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-}
-
-.page-hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: var(--spacing-sm);
-  position: relative;
-  z-index: 1;
-}
-
-.page-hero p {
-  font-size: 20px;
-  opacity: 0.95;
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* ==========================================================================
-   10. SEÇÕES GERAIS E STATS
+   SEÇÕES E STATS
    ========================================================================== */
 .section {
   padding: var(--spacing-3xl) 0;
@@ -526,14 +455,6 @@ img {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin: var(--spacing-2xl) 0 var(--spacing-lg);
-  color: var(--text-dark);
-  text-align: center;
 }
 
 .stats-section {
@@ -565,27 +486,36 @@ img {
   font-weight: 500;
 }
 
-
-
 /* ==========================================================================
-  11. PARCEIROS (CARROSSEL INFINITO - 8 desktop / 3 mobile)
-   ========================================================================== */
-/* ==========================================================================
-   PARCEIROS - VERSÃO BLINDADA
-   ========================================================================== */
-/* ==========================================================================
-   PARCEIROS (CARROSSEL INFINITO) - VERSÃO FINAL
+   PARCEIROS - CARROSSEL INFINITO (FUNCIONA EM TODOS OS DISPOSITIVOS)
    ========================================================================== */
 .partners-section {
   background: var(--white);
-  padding: 60px 0;
+  padding: var(--spacing-3xl) 0;
   overflow: hidden;
   width: 100%;
 }
 
+.partners-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.partners-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.partners-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .partners-track {
   display: flex;
-  flex-wrap: nowrap;
   gap: 20px;
   width: max-content;
   animation: scrollPartners 35s linear infinite;
@@ -609,59 +539,31 @@ img {
   justify-content: center;
   padding: 10px;
   background: var(--white);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base);
+}
+
+.partner-item:hover {
+  transform: scale(1.05);
 }
 
 .partner-logo {
-  height: 45px;
+  width: 100%;
+  height: 50px;
   max-width: 120px;
-  width: auto;
   object-fit: contain;
   opacity: 0.7;
+  transition: all var(--transition-base);
   filter: grayscale(100%);
-  transition: all 0.3s ease;
 }
 
 .partner-item:hover .partner-logo {
   opacity: 1;
   filter: grayscale(0%);
-  transform: scale(1.1);
 }
-
-/* ===== RESPONSIVIDADE DO CARROSSEL ===== */
-
-/* Tablet: 5-6 imagens */
-@media (max-width: 1024px) {
-  .partner-item { width: 130px; }
-  .partner-logo { height: 45px; max-width: 110px; }
-  .partners-track { gap: 15px; }
-}
-
-/* Mobile: 3 imagens visíveis, mas TODAS animando */
-@media (max-width: 768px) {
-  .partner-item { width: 100px; }
-  .partner-logo { height: 40px; max-width: 90px; }
-  .partners-track { 
-    gap: 15px; 
-    animation-duration: 25s; 
-  }
-}
-
-/* Mobile pequeno: 3 imagens menores, mas TODAS animando */
-@media (max-width: 480px) {
-  .partner-item { width: 90px; }
-  .partner-logo { height: 35px; max-width: 80px; }
-  .partners-track { 
-    gap: 12px; 
-    animation-duration: 20s; 
-  }
-}
-
-
-
 
 /* ==========================================================================
-   12. SERVIÇOS (3 CARDS GRANDES)
+   SERVIÇOS E PRODUTOS
    ========================================================================== */
 .services-grid {
   display: grid;
@@ -706,9 +608,6 @@ img {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   13. PRODUTOS (GRADE DETALHADA)
-   ========================================================================== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -755,7 +654,7 @@ img {
 }
 
 /* ==========================================================================
-   14. FOOTER
+   FOOTER
    ========================================================================== */
 .footer {
   background: var(--dark);
@@ -822,7 +721,7 @@ img {
 }
 
 /* ==========================================================================
-   15. WHATSAPP FLOAT E ANIMAÇÕES
+   WHATSAPP FLOAT
    ========================================================================== */
 .wa-float {
   position: fixed;
@@ -864,16 +763,22 @@ img {
 }
 
 /* ==========================================================================
-   16. RESPONSIVIDADE (MEDIA QUERIES)
+   RESPONSIVIDADE - MOBILE (CARROSSEL FUNCIONA EM TODOS OS TAMANHOS)
    ========================================================================== */
+
+/* Tablet */
 @media (max-width: 1024px) {
   .nav-list { gap: var(--spacing-md); }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-container { grid-template-columns: repeat(3, 1fr); }
-  .hero h1, .page-hero h1 { font-size: 40px; }
+  .hero h1 { font-size: 40px; }
+  
+  .partner-item { width: 130px; }
+  .partner-logo { height: 45px; max-width: 110px; }
+  .partners-track { gap: 15px; }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   
@@ -951,34 +856,53 @@ img {
   .section { padding: var(--spacing-2xl) 0; }
   .section h2 { font-size: 28px; }
   
-  .hero, .page-hero {
+  .hero {
     min-height: 400px;
     height: auto;
     padding: var(--spacing-3xl) 0;
   }
-  .hero h1, .page-hero h1 { font-size: 32px; }
+  .hero h1 { font-size: 32px; }
   .stat-number { font-size: 36px; }
   
   .services-grid, .products-grid { grid-template-columns: 1fr; }
   .footer-container { grid-template-columns: 1fr; }
   
-  /* Ajustes do Carrossel de Parceiros no Mobile */
-  .partner-logo { height: 50px; max-width: 120px; }
-  .partners-track {
-    gap: var(--spacing-xl);
-    animation-duration: 20s;
+  /* CARROSSEL MOBILE - 3 IMAGENS VISÍVEIS */
+  .partner-item { 
+    width: 100px !important;
+  }
+  .partner-logo { 
+    height: 40px !important; 
+    max-width: 90px !important;
+  }
+  .partners-track { 
+    gap: 15px !important;
+    animation-duration: 25s !important;
   }
 }
 
+/* Mobile Pequeno */
 @media (max-width: 480px) {
   .header-container { padding: var(--spacing-xs) var(--spacing-sm); }
   .logo img { height: 32px; }
-  .hero h1, .page-hero h1 { font-size: 26px; }
+  .hero h1 { font-size: 26px; }
   .btn-large { padding: 14px 24px; font-size: 15px; }
   .section h2 { font-size: 24px; }
   .stat-number { font-size: 32px; }
   .wa-float { width: 50px; height: 50px; bottom: var(--spacing-md); right: var(--spacing-md); }
-  .partner-logo { height: 40px; max-width: 100px; }
+  
+  /* CARROSSEL MOBILE PEQUENO */
+  .partner-item { 
+    width: 90px !important;
+  }
+  .partner-logo { 
+    height: 35px !important; 
+    max-width: 80px !important;
+  }
+  .partners-track { 
+    gap: 12px !important;
+    animation-duration: 20s !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -996,7 +920,6 @@ a:focus, button:focus {
 }
 
 @media print {
-  .header, .hero, .page-hero, .wa-float, .footer { display: none; }
+  .header, .hero, .wa-float, .footer { display: none; }
   body { color: #000; background: #fff; }
 }
-
