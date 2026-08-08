@@ -393,3 +393,63 @@ img { max-width: 100%; height: auto; display: block; }
   .animate-on-scroll { opacity: 1; transform: none; }
 }
 a:focus, button:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* ===== PARCEIROS CAROUSEL (Infinito) ===== */
+.partners-section {
+  background: var(--white);
+  padding: var(--spacing-2xl) 0;
+  overflow: hidden; /* Esconde o que está fora da tela */
+}
+
+.partners-track {
+  display: flex;
+  gap: var(--spacing-2xl); /* Espaço entre logos */
+  width: max-content; /* Largura baseada no conteúdo */
+  animation: scrollPartners 30s linear infinite; /* Animação contínua */
+  padding: 0 var(--spacing-md);
+}
+
+.partners-track:hover {
+  animation-play-state: paused; /* Pausa ao passar o mouse */
+}
+
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move metade para criar loop perfeito */
+  }
+}
+
+.partner-logo {
+  height: 60px; /* Altura fixa */
+  width: auto; /* Largura proporcional */
+  opacity: 0.6;
+  transition: all var(--transition-base);
+  filter: grayscale(100%); /* Preto e branco */
+}
+
+.partner-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%); /* Cor original ao passar o mouse */
+  transform: scale(1.1); /* Aumenta um pouco */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .partner-logo {
+    height: 50px; /* Menor no mobile */
+  }
+  
+  .partners-track {
+    gap: var(--spacing-xl); /* Menos espaço entre logos */
+    animation-duration: 20s; /* Mais rápido no mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-logo {
+    height: 40px; /* Ainda menor em telas pequenas */
+  }
+}
