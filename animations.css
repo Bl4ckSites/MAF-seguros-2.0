@@ -1,0 +1,483 @@
+/* ==========================================================================
+   ANIMATIONS.CSS - Pacote de Animações Extras para MARF
+   NÃO duplica nenhuma animação existente no style.css
+   ========================================================================== */
+
+/* ==========================================================================
+   1. ANIMAÇÕES DE SURGIMENTO (ENTRADAS)
+   ========================================================================== */
+
+/* 1.1 Fade In da Esquerda */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+/* 1.2 Fade In da Direita */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+/* 1.3 Fade In de Cima */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+/* 1.4 Zoom In */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 1.5 Rotate In */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s ease forwards;
+  transform-origin: center;
+}
+
+/* 1.6 Flip In Horizontal */
+@keyframes flipInX {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0);
+  }
+}
+
+.animate-flip-in-x {
+  animation: flipInX 0.8s ease forwards;
+}
+
+/* 1.7 Bounce In */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* 1.8 Slide In Up (com elasticidade) */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ==========================================================================
+   2. ANIMAÇÕES DE CLIQUE / INTERAÇÃO
+   ========================================================================== */
+
+/* 2.1 Ripple (Material Design) */
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 102, 204, 0);
+  }
+}
+
+.animate-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.animate-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 2.2 Click Pulse */
+@keyframes clickPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.animate-click-pulse:active {
+  animation: clickPulse 0.3s ease;
+}
+
+/* 2.3 Click Scale */
+@keyframes clickScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.animate-click-scale:active {
+  animation: clickScale 0.2s ease;
+}
+
+/* 2.4 Shake (para erros/atenção) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+.animate-shake {
+  animation: shake 0.6s ease;
+}
+
+/* 2.5 Tada (chamada de atenção) */
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.animate-tada {
+  animation: tada 1s ease;
+}
+
+/* 2.6 Rubber Band (elástico) */
+@keyframes rubberBand {
+  0% { transform: scale3d(1, 1, 1); }
+  30% { transform: scale3d(1.25, 0.75, 1); }
+  40% { transform: scale3d(0.75, 1.25, 1); }
+  50% { transform: scale3d(1.15, 0.85, 1); }
+  65% { transform: scale3d(0.95, 1.05, 1); }
+  75% { transform: scale3d(1.05, 0.95, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+.animate-rubber-band {
+  animation: rubberBand 1s ease;
+}
+
+/* 2.7 Jello (gelatina) */
+@keyframes jello {
+  0%, 100% { transform: skewX(0) skewY(0); }
+  30% { transform: skewX(-12.5deg) skewY(-12.5deg); }
+  40% { transform: skewX(6.25deg) skewY(6.25deg); }
+  50% { transform: skewX(-3.125deg) skewY(-3.125deg); }
+  65% { transform: skewX(1.5625deg) skewY(1.5625deg); }
+  75% { transform: skewX(-0.78125deg) skewY(-0.78125deg); }
+}
+
+.animate-jello {
+  animation: jello 1s ease;
+}
+
+/* 2.8 Heart Beat (batida de coração) */
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+.animate-heart-beat {
+  animation: heartBeat 1.3s ease infinite;
+}
+
+/* ==========================================================================
+   3. ANIMAÇÕES CONTÍNUAS / DECORATIVAS
+   ========================================================================== */
+
+/* 3.1 Float (flutuação suave) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 3.2 Glow (brilho pulsante) */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary-light);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* 3.3 Shimmer (brilho deslizante) */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-light) 0%,
+    var(--white) 50%,
+    var(--bg-light) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* 3.4 Swing (balanço) */
+@keyframes swing {
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0); }
+}
+
+.animate-swing {
+  animation: swing 1s ease;
+  transform-origin: top center;
+}
+
+/* 3.5 Wobble */
+@keyframes wobble {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-25%) rotate(-5deg); }
+  30% { transform: translateX(20%) rotate(3deg); }
+  45% { transform: translateX(-15%) rotate(-3deg); }
+  60% { transform: translateX(10%) rotate(2deg); }
+  75% { transform: translateX(-5%) rotate(-1deg); }
+  100% { transform: translateX(0); }
+}
+
+.animate-wobble {
+  animation: wobble 1s ease;
+}
+
+/* ==========================================================================
+   4. UTILITÁRIOS - DELAYS
+   ========================================================================== */
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+
+/* ==========================================================================
+   5. UTILITÁRIOS - DURAÇÕES
+   ========================================================================== */
+
+.duration-fast { animation-duration: 0.3s !important; }
+.duration-normal { animation-duration: 0.6s !important; }
+.duration-slow { animation-duration: 1s !important; }
+.duration-very-slow { animation-duration: 1.5s !important; }
+
+/* ==========================================================================
+   6. UTILITÁRIOS - EASING
+   ========================================================================== */
+
+.ease-bounce { animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; }
+.ease-smooth { animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.ease-sharp { animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1) !important; }
+
+/* ==========================================================================
+   7. CLASSES COMBINADAS (HOVER EFFECTS)
+   ========================================================================== */
+
+/* 7.1 Hover Lift (elevação suave) */
+.animate-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animate-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 102, 204, 0.2);
+}
+
+/* 7.2 Hover Glow (brilho no hover) */
+.animate-hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.animate-hover-glow:hover {
+  box-shadow: 0 0 20px var(--primary-light), 0 0 40px rgba(0, 102, 204, 0.3);
+}
+
+/* 7.3 Hover Rotate (rotação no hover) */
+.animate-hover-rotate {
+  transition: transform 0.4s ease;
+}
+
+.animate-hover-rotate:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* 7.4 Hover Border (borda animada) */
+.animate-hover-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-hover-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  transition: left 0.4s ease;
+}
+
+.animate-hover-border:hover::before {
+  left: 0;
+}
+
+/* 7.5 Hover Shine (brilho passando) */
+.animate-hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-hover-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.animate-hover-shine:hover::after {
+  left: 150%;
+}
+
+/* ==========================================================================
+   8. RESPEITAR "REDUCED MOTION"
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-left,
+  .animate-fade-in-right,
+  .animate-fade-in-down,
+  .animate-zoom-in,
+  .animate-rotate-in,
+  .animate-flip-in-x,
+  .animate-bounce-in,
+  .animate-slide-in-up,
+  .animate-float,
+  .animate-glow,
+  .animate-shimmer,
+  .animate-swing,
+  .animate-wobble,
+  .animate-heart-beat {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* Manter apenas transições suaves */
+  .animate-hover-lift:hover,
+  .animate-hover-glow:hover,
+  .animate-hover-rotate:hover {
+    transform: none;
+  }
+}
