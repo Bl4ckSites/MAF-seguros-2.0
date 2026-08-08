@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planos de Saúde MARF - Encontre o plano ideal para você e sua família. Individual, familiar e empresarial com as melhores operadoras.">
+  <title>Planos de Saúde – MARF Corretora</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="./favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicons/favicon.svg" />
+  <link rel="shortcut icon" href="./favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MARF" />
+  <link rel="manifest" href="./favicons/site.webmanifest" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./planos.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="main-header">
+    <div class="header-container">
+      <a href="./index.html" class="logo">
+        <img src="./img/logo.png" alt="MARF Corretora de Seguros">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="./index.html">Início</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Seguros <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="./seguros.html#auto">Auto</a></li>
+              <li><a href="./seguros.html#moto">Moto</a></li>
+              <li><a href="./seguros.html#residencial">Residencial</a></li>
+              <li><a href="./seguros.html#vida">Vida</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Consórcios <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="./consorcios.html#imoveis">Imóveis</a></li>
+              <li><a href="./consorcios.html#automoveis">Automóveis</a></li>
+              <li><a href="./consorcios.html#pesados">Pesados</a></li>
+              <li><a href="./consorcios.html#servicos">Serviços</a></li>
+            </ul>
+          </li>
+          <li><a href="./planos.html" class="active">Plano de Saúde</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="tel:+5521964305535" class="phone-link">
+          <svg class="icon-svg small" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (21) 96430-5535
+        </a>
+        <a href="#" class="btn btn-whatsapp" data-wa>Falar no WhatsApp</a>
+        <button class="hamburger" id="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="planos-hero">
+    <div class="planos-hero-bg">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80" alt="Família feliz com plano de saúde" loading="lazy">
+    </div>
+    <div class="planos-hero-content container">
+      <h1>Planos de Saúde</h1>
+      <p class="hero-subtitle">Encontre o plano ideal para você e sua família com as melhores operadoras do mercado</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-count="200" data-prefix="+">0</span>
+          <span class="stat-label">Hospitais</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="300" data-prefix="+">0</span>
+          <span class="stat-label">Especialistas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="4.5">0</span>
+          <span class="stat-label">Avaliações</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SIMULADOR SECTION ===== -->
+  <section class="simulador-section">
+    <div class="container">
+      <div class="simulador-wrapper">
+        <div class="simulador-text">
+          <h2>Tenha tranquilidade e segurança com nosso plano de saúde, completo e acessível.</h2>
+          <p class="simulador-subtitle">Receba um estudo de custos e economize com o plano de saúde!</p>
+        </div>
+        <div class="simulador-card">
+          <form id="simuladorForm" class="simulador-form">
+            <div class="form-group">
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone (WhatsApp)" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="form-group">
+              <select id="tipoPlano" name="tipoPlano" required>
+                <option value="" disabled selected>Tipo de plano</option>
+                <option value="individual">Individual</option>
+                <option value="familiar">Familiar</option>
+                <option value="empresarial">Empresarial</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-simular">Simule Agora</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEGURADORAS SECTION ===== -->
+  <section class="seguradoras-section">
+    <div class="container">
+      <h2 class="section-title">Principais Operadoras</h2>
+      <p class="section-subtitle">Trabalhamos com as melhores seguradoras do mercado</p>
+      <div class="seguradoras-grid">
+        <div class="seguradora-card">
+          <img src="./img/hapvida-logo.png" alt="Hapvida" loading="lazy">
+        </div>
+        <div class="seguradora-card">
+          <img src="./img/amil-logo.png" alt="Amil" loading="lazy">
+        </div>
+        <div class="seguradora-card">
+          <img src="./img/sulamerica-logo.png" alt="SulAmérica" loading="lazy">
+        </div>
+        <div class="seguradora-card">
+          <img src="./img/bradesco-logo.png" alt="Bradesco Saúde" loading="lazy">
+        </div>
+        <div class="seguradora-card">
+          <img src="./img/unimed-logo.png" alt="Unimed" loading="lazy">
+        </div>
+        <div class="seguradora-card">
+          <img src="./img/porto-saude-logo.png" alt="Porto Saúde" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIPOS DE PLANOS SECTION ===== -->
+  <section class="planos-tipos-section">
+    <div class="container">
+      <h2 class="section-title">Escolha o Plano Ideal para Você</h2>
+      <p class="section-subtitle">Oferecemos soluções completas para cada necessidade</p>
+      
+      <div class="planos-grid">
+        <!-- Plano Individual -->
+        <div class="plano-card">
+          <div class="plano-header">
+            <h3>INDIVIDUAL</h3>
+            <p class="plano-subtitle">Planos pessoa física ideal para quem não tem dependentes</p>
+          </div>
+          <div class="plano-body">
+            <ul class="plano-features">
+              <li>Cobertura ambulatorial e hospitalar</li>
+              <li>Rede credenciada completa</li>
+              <li>Telemedicina 24h</li>
+              <li>Desconto em farmácias</li>
+              <li>Check-up anual gratuito</li>
+            </ul>
+            <a href="#" class="btn-plano" data-wa>Solicitar Cotação</a>
+          </div>
+        </div>
+
+        <!-- Plano Familiar (Destaque) -->
+        <div class="plano-card destaque">
+          <div class="plano-badge">Mais Popular</div>
+          <div class="plano-header">
+            <h3>FAMILIAR</h3>
+            <p class="plano-subtitle">Proteja toda sua família com condições especiais</p>
+          </div>
+          <div class="plano-body">
+            <ul class="plano-features">
+              <li>Cobertura para todos os dependentes</li>
+              <li>Desconto progressivo por titular</li>
+              <li>Pediatra e ginecologista inclusos</li>
+              <li>Urgência e emergência 24h</li>
+              <li>Programa de prevenção</li>
+            </ul>
+            <a href="#" class="btn-plano btn-destaque" data-wa>Solicitar Cotação</a>
+          </div>
+        </div>
+
+        <!-- Plano Empresarial -->
+        <div class="plano-card">
+          <div class="plano-header">
+            <h3>EMPRESARIAL</h3>
+            <p class="plano-subtitle">Soluções completas para empresas de todos os portes</p>
+          </div>
+          <div class="plano-body">
+            <ul class="plano-features">
+              <li>Planos a partir de 2 vidas</li>
+              <li>Benefício fiscal para empresa</li>
+              <li>Gestão de saúde ocupacional</li>
+              <li>Relatórios de utilização</li>
+              <li>Atendimento dedicado</li>
+            </ul>
+            <a href="#" class="btn-plano" data-wa>Solicitar Cotação</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFÍCIOS SECTION ===== -->
+  <section class="beneficios-section">
+    <div class="container">
+      <div class="beneficios-grid">
+        <div class="beneficio-item">
+          <div class="beneficio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>+200 Hospitais</h3>
+          <p>Rede credenciada em todo o Brasil com os melhores hospitais</p>
+        </div>
+        <div class="beneficio-item">
+          <div class="beneficio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>+300 Especialistas</h3>
+          <p>Médicos especializados em todas as áreas da saúde</p>
+        </div>
+        <div class="beneficio-item">
+          <div class="beneficio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>4.5 Avaliações</h3>
+          <p>Nota máxima em satisfação dos nossos clientes</p>
+        </div>
+        <div class="beneficio-item">
+          <div class="beneficio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Atendimento 24h</h3>
+          <p>Suporte e telemedicina disponíveis 24 horas por dia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="planos-cta-section">
+    <div class="container">
+      <div class="planos-cta-content">
+        <h2>Ainda está em dúvida?</h2>
+        <p>Nossos especialistas estão prontos para ajudar você a encontrar o plano perfeito!</p>
+        <a href="#" class="btn btn-whatsapp btn-large" data-wa>Falar com Especialista Agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="./img/logo-white.png" alt="MARF" width="120" height="40" style="margin-bottom: 20px;">
+        <p class="footer-desc">Corretora de seguros e planos de saúde com mais de 11 anos de experiência. Protegemos o que você mais ama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="./index.html">Início</a></li>
+          <li><a href="./seguros.html">Seguros</a></li>
+          <li><a href="./consorcios.html">Consórcios</a></li>
+          <li><a href="./planos.html">Planos de Saúde</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg class="icon-svg small" viewBox="0 0 24 24" stroke="white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+5521964305535">(21) 96430-5535</a>
+          </li>
+          <li>
+            <svg class="icon-svg small" viewBox="0 0 24 24" stroke="white"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:marfcorretoraseguros@gmail.com">marfcorretoraseguros@gmail.com</a>
+          </li>
+          <li>
+            <svg class="icon-svg small" viewBox="0 0 24 24" stroke="white"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>Atendimento 100% Online</span>
+          </li>
+        </ul>
+        <a href="#" class="btn btn-whatsapp" data-wa style="margin-top: 20px; width: 100%;">Fale no WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 MARF Corretora de Seguros. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="#" class="wa-float" id="wa-float" aria-label="Falar no WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="./app.js"></script>
+  <script src="./whatsapp.js"></script>
+  <script src="./planos.js"></script>
+</body>
+</html>
